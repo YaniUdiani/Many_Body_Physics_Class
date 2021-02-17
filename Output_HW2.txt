@@ -1,0 +1,44 @@
+
+####################################################### Problem 2 Outputs #######################################################
+
+epsilon = 1, V = 0.1, Omega =  N = 10
+
+
+Spectra using quasi-spin formalism with K =   0 [0.]
+
+Spectra using quasi-spin formalism with K =   1 [-1.00498756  1.00498756  0.        ]
+
+Spectra using quasi-spin formalism with K =   2 [-2.02977831e+00  2.98155597e-18  2.02977831e+00  1.04403065e+00 -1.04403065e+00]
+
+Spectra using quasi-spin formalism with K =   3 [-3.07550461e+00 -1.09602527e+00  1.09602527e+00  3.07550461e+00 -2.14476106e+00 -7.84962373e-17  2.14476106e+00]
+
+Spectra using quasi-spin formalism with K =   4 [-4.14578042e+00 -2.27431411e+00  1.57044887e-16  2.27431411e+00  4.14578042e+00 -3.30479340e+00 -1.15686671e+00  1.15686671e+00  3.30479340e+00]
+
+Spectra using quasi-spin formalism with K =   5 [-5.24799860e+00 -3.53152247e+00 -1.22346220e+00  1.22346220e+00  3.53152247e+00  5.24799860e+00 -4.53151083e+00 -2.41358853e+00 -4.39808584e-16  2.41358853e+00  4.53151083e+00]
+
+
+
+####################################################### Problem 3 Outputs #######################################################
+
+
+a.)
+Spectra using full Slater determinant CI (Omega = N = 2):  [ 1.00498756 -1.00498756  0.          0.          0.          0.        ]
+
+
+
+b.)
+
+Omega =  N = 2
+
+
+Spectra using quasi-spin formalism with K =   0 [0.]
+
+Spectra using quasi-spin formalism with K =   1 [-1.00498756  1.00498756  0.        ]
+
+
+
+c.) 
+
+Spectra using full Slater determinant CI (Omega = 2, N = 4):  [0.]
+
+Spectra using quasi-spin formalism with K =   0 [0.]
