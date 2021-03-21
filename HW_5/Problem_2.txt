@@ -1,0 +1,6 @@
+For rrgs =   -1 Minimum VAP Energy : -4.515489469227644
+For rrgs =   -1 Minimum PAV Energy : nan #I'm not sure if this is correct, but I'm just reporting it
+
+
+For r*rgs =   1 Minimum VAP Energy : -5.226071851991774
+For r*rgs =   1 Minimum PAV Energy : -5.0
