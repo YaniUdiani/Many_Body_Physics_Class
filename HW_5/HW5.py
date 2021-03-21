@@ -11,49 +11,6 @@ from scipy.optimize import fsolve
 import Lipkin_Model1
 from numpy import linalg as LA
 
-
-
-def dE_dtheta1(LM_parameters, tol, theta, phi):
-  
-  
-  Omega   = LM_parameters["Omega"] 
-  epsilon = LM_parameters["epsilon"]
-  rrgs    = LM_parameters["rrgs"]
-  chi     = LM_parameters["chi"]
-  
-
-  
-  #First term
-  A_1 = (-epsilon * Omega**2 * rrgs * np.sin(theta) * np.cos(theta)**(Omega-1)
-       /(1 +  rrgs * np.cos(theta)**(Omega) )**2 )
-  
-  B_1 = np.cos(theta)**(Omega-1) 
-  
-  C_1 = (2* chi * (1- np.tan(theta/2)**(2))**(Omega-2) * np.tan(theta/2)**(2) *
-       np.cos(theta/2)**(2*Omega)) * np.cos(2* phi)
-  
-  
-  
-  
-  #Second term
-  A_2 = (-epsilon * Omega /(1 +  rrgs * np.cos(theta)**(Omega) ) )
-  
-  B_2 = (1-Omega) * np.cos(theta)**(Omega-2) * np.sin(theta)
-  
-  C_2 = ( (chi/2) * np.sin(theta/2) * (1/np.cos(theta)**(3) ) * 
-         np.cos(theta/2)**(2*Omega + 1) * (Omega * (np.cos(2*theta) - 1) + 4)
-      * (np.cos(theta) * (1/np.cos(theta/2)**(2)) )**(Omega) ) * np.cos(2* phi) 
-  
-  
-  val = A_1 * (B_1 + C_1) + A_2 * (B_2 + C_2)
-  
-  if val <= tol:
-    
-    print("theta_initial_guess = ", theta)
-    
-  
-  
-  return val
   
 
 
