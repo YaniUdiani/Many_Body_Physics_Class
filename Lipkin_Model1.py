@@ -174,16 +174,18 @@ def quasispin(K, epsilon, V):
       
   return  Ham_block  
 
-
-for K in range(1):
+if __name__ == "__main__":
   
-  Quasi_Ham = quasispin(K, epsilon, V)  
+  for K in range(6):
+    
+    Quasi_Ham = quasispin(K, epsilon, V)  
+    
+    #print(Quasi_Ham)
   
-  #print(Quasi_Ham)
-
-
-  print("Spectra using quasi-spin formalism with K =  ",K,LA.eig(Quasi_Ham)[0])
-  print("")  
+  
+    print("Spectra using quasi-spin formalism with K =  ",K,
+          LA.eig(Quasi_Ham)[0])
+    print("")  
   
   
 
