@@ -12,6 +12,7 @@ import scipy.special
 from numpy import linalg as LA
 import matplotlib.pyplot as plt # Plotting stuff
 import Lipkin_Model1
+import sys
 
 
 def bounds_y(a,b,c,d,e,f):
@@ -105,15 +106,16 @@ def subspace_hamiltonian(chi, Omega, epsilon):
           
       subspace_H[i, j] = administrator(chi, Omega, epsilon, k_values[i], 
                                        k_values[j])
-      
+             
       
   return subspace_H
 
 
 def eigendecomposition(Ham):
   
+  decomp = LA.eig(Ham)
   
-  return LA.eig(Ham)[0],  LA.eig(Ham)[1]
+  return decomp[0],  decomp[1]
   
   
   
@@ -133,6 +135,7 @@ def transform_collective_wavefuctions(g, Omega, theta):
     
     gr = g[i].real
     gi = g[i].imag
+    
     
     real += gr * np.cos(k_values[i] * theta) + gi * np.sin(k_values[i] * theta)
     imag += gi * np.cos(k_values[i] * theta) - gr * np.sin(k_values[i] * theta)
@@ -186,15 +189,18 @@ def main():
   
   #print("eigenvectors of subspace Hamiltonian: ", eigenVectors)
   
+  # for ik in range(Omega+2):
+  #   print(LA.norm(eigenVectors[ik,:]))
   
+  #sys.exit()
   
   plot_exact_egs = []
   plot_gcm_egs = []
   #chi_s = np.linspace(0, 2, 8)
-  chi_s = np.array([0.1 , 1.00, 2.0  ])
+  chi_s = np.array([0.9 , 1.00, 2.0  ])
   
   store_eigenvectors = [ [], [] , []]
-  theta_vals = np.linspace(-np.pi/2, np.pi/2, 60)
+  theta_vals = np.linspace(-np.pi, np.pi, 300)
   
 
   
@@ -225,9 +231,9 @@ def main():
     print("");  print(eigenValues); 
     print(""); print([ind_egs , ind_first_exc, ind_second_exc])
     
-    store_eigenvectors[jj].append(eigenVectors[ind_egs])
-    store_eigenvectors[jj].append(eigenVectors[ind_first_exc])
-    store_eigenvectors[jj].append(eigenVectors[ind_second_exc])
+    store_eigenvectors[jj].append(eigenVectors[:, ind_egs])
+    store_eigenvectors[jj].append(eigenVectors[:, ind_first_exc])
+    store_eigenvectors[jj].append(eigenVectors[:, ind_second_exc])
     
 
   
@@ -255,7 +261,7 @@ def main():
   plt.ylabel('$\Re [\, g(\Theta)\,]$')  
   plt.grid()
   plt.tight_layout()    
-  plt.savefig( "GCM_Real_Wavefunctions"+ ".png" , format = "png", dpi = 500, 
+  plt.savefig( "GCM_Real_Wavefunctions_Updated"+ ".png" , format = "png", dpi = 500, 
             bbox_inches='tight') 
   
   
@@ -284,7 +290,7 @@ def main():
   plt.ylabel('$\Im [\, g(\Theta)\,]$')  
   plt.grid()
   plt.tight_layout()    
-  plt.savefig( "GCM_Imag_Wavefunctions"+ ".png" , format = "png", dpi = 500, 
+  plt.savefig( "GCM_Imag_Wavefunctions_Updated"+ ".png" , format = "png", dpi = 500, 
             bbox_inches='tight')   
     
     
